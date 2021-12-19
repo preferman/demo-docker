@@ -1,8 +1,10 @@
 FROM alpine:latest
 
-ADD entrypoint.sh /opt/entrypoint.sh
+WORKDIR /app
+
+COPY entrypoint.sh /app/entrypoint.sh
 
 RUN apk add --no-cache --virtual .build-deps ca-certificates curl \
- && chmod +x /opt/entrypoint.sh
+ && chmod +x /app/entrypoint.sh
 
-ENTRYPOINT ["sh", "-c", "/opt/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
