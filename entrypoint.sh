@@ -4,27 +4,23 @@
 DIR_CONFIG="/etc/v2ray"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
-PORT="$1"
-ID="$2"
-ALTER_ID="$3"
-PATH="$4"
 
 # Write V2Ray configuration
 cat << EOF > ${DIR_TMP}/heroku.json
 {
     "inbounds": [{
-        "port": ${PORT},
+        "port": 443,
         "protocol": "vmess",
         "settings": {
             "clients": [{
-                "id": "${ID}",
-                "alterId": ${ALTER_ID}
+                "id": "f6e0daef-3a42-4f1b-96ea-6269a7ff3a8a",
+                "alterId": 4
             }]
         },
         "streamSettings": {
             "network": "ws",
             "wsSettings": {
-                "path": "${PATH}"
+                "path": "/"
             }
         }
     }],

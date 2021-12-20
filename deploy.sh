@@ -1,4 +1,4 @@
-key_location=""
+key_location="~/.ssh/dev-amazon.pem"
 dir_tmp="$(mktemp -d)"
 
 mkdir -p app
