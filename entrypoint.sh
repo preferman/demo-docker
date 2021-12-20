@@ -4,23 +4,27 @@
 DIR_CONFIG="/etc/v2ray"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
+PORT="$1"
+ID="$2"
+ALTER_ID="$3"
+PATH="$4"
 
 # Write V2Ray configuration
 cat << EOF > ${DIR_TMP}/heroku.json
 {
     "inbounds": [{
-        "port": 443,
+        "port": ${PORT},
         "protocol": "vmess",
         "settings": {
             "clients": [{
-                "id": "ad806487-2d26-4636-98b6-ab85cc8521f7",
-                "alterId": 64
+                "id": "${ID}",
+                "alterId": ${ALTER_ID}
             }]
         },
         "streamSettings": {
             "network": "ws",
             "wsSettings": {
-                "path": "/"
+                "path": "${PATH}"
             }
         }
     }],
@@ -31,7 +35,7 @@ cat << EOF > ${DIR_TMP}/heroku.json
 EOF
 
 # Get V2Ray executable release
-curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip -o ${DIR_TMP}/v2ray_dist.zip
+curl --retry 5 --retry-max-time 10 -H "Cache-Control: no-cache" -fsSL github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip -o ${DIR_TMP}/v2ray_dist.zip
 busybox unzip ${DIR_TMP}/v2ray_dist.zip -d ${DIR_TMP}
 
 # Convert to protobuf format configuration
