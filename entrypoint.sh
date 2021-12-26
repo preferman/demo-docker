@@ -1,26 +1,31 @@
 #!/bin/sh
 
+
 # Global variables
 DIR_CONFIG="/etc/v2ray"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
+#echo "filename is $0"
+#echo "first param is $1"
+#echo "scend param is $2"
+
 # Write V2Ray configuration
 cat << EOF > ${DIR_TMP}/heroku.json
 {
     "inbounds": [{
-        "port": 443,
+        "port": $1,
         "protocol": "vmess",
         "settings": {
             "clients": [{
-                "id": "f6e0daef-3a42-4f1b-96ea-6269a7ff3a8a",
-                "alterId": 4
+                "id": "$2",
+                "alterId": $3
             }]
         },
         "streamSettings": {
             "network": "ws",
             "wsSettings": {
-                "path": "/"
+                "path": "$4"
             }
         }
     }],
@@ -40,7 +45,10 @@ ${DIR_TMP}/v2ctl config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.pb
 
 # Install V2Ray
 install -m 755 ${DIR_TMP}/v2ray ${DIR_RUNTIME}
-rm -rf ${DIR_TMP}
+#rm -rf ${DIR_TMP}
 
 # Run V2Ray
 ${DIR_RUNTIME}/v2ray -config=${DIR_CONFIG}/config.pb
+
+exec "$@"
+
