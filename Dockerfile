@@ -9,5 +9,5 @@ RUN apk add --no-cache --virtual .build-deps ca-certificates curl \
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 
-CMD ["8090","f6e0daef-3a42-4f1b-96ea-6269a7ff3a8a","4","/"]
+CMD ["80","f6e0daef-3a42-4f1b-96ea-6269a7ff3a8a","4","/"]
 
