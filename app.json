@@ -1,0 +1,9 @@
+{
+    "name": "V2Ray",
+    "description": "Deploy V2ray on Heroku.",
+    "keywords": ["V2Ray"],
+    "env": {},
+    "website": "",
+    "repository": "https://github.com/yuxinghui1024/demo-docker",
+    "stack": "container"
+}
