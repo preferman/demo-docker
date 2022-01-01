@@ -12,7 +12,8 @@ cat << EOF > ${DIR_TMP}/heroku.json
 {
   "inbounds": [
     {
-      "port": 9999,
+      "port": 443,
+      "listen":"127.0.0.1",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -21,6 +22,12 @@ cat << EOF > ${DIR_TMP}/heroku.json
             "alterId": 4
           }
         ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+        "path": "/ray"
+        }
       }
     }
   ],
