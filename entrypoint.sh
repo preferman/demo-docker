@@ -257,6 +257,8 @@ cat ${DIR_CADDY_CONFIG}/Caddyfile | sed -e "s/key/$(caddy hash-password --plaint
 
 rm -rf ${DIR_TMP}
 
+caddy fmt ${DIR_CADDY_CONFIG}/Caddyfile
+
 ${DIR_XRAY}/xray -config ${DIR_XRAY_CONFIG}/xray.json &
 caddy run --config ${DIR_CADDY_CONFIG}/Caddyfile --adapter caddyfile
 
