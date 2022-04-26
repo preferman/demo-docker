@@ -199,7 +199,7 @@ header {
 }
 
 basicauth /$AID/* {
-    $AID key
+    $AID KEY
 }
 
 
@@ -252,7 +252,7 @@ mv ${DIR_CADDY_RESOURCE}/*/* ${DIR_CADDY_RESOURCE}/
 
 echo -e "User-agent: *\nDisallow: /" >${DIR_CADDY_RESOURCE}/robots.txt
 
-cat ${DIR_CADDY_CONFIG}/Caddyfile | sed -e "s/key/$(caddy hash-password --plaintext $AID)/g" > ${DIR_CADDY_CONFIG}/Caddyfile
+cat ${DIR_CADDY_CONFIG}/Caddyfile | sed -e "s/KEY/$(caddy hash-password --plaintext $AID)/g" > ${DIR_CADDY_CONFIG}/Caddyfile
 
 
 rm -rf ${DIR_TMP}
