@@ -265,7 +265,7 @@ reverse_proxy @websocket_xray_socks 127.0.0.1:5234
 @websocket_xray_xtls {
 	header Connection *Upgrade*
 	header Upgrade    websocket
-	path /$AID-socks
+	path /$AID-xtls
 }
 reverse_proxy @websocket_xray_socks 127.0.0.1:1234
 EOF
