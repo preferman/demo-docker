@@ -33,7 +33,6 @@ cat << EOF > ${DIR_XRAY_CONFIG}/xray.json
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "acceptProxyProtocol": true,
           "path": "/$AID-xtls"
         }
       }
