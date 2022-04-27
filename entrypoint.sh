@@ -15,7 +15,7 @@ mkdir -p ${DIR_XRAY_CONFIG} ${DIR_CADDY_CONFIG} ${DIR_CADDY_RESOURCE} ${DIR_XRAY
 cat << EOF > ${DIR_XRAY_CONFIG}/xray.json
 {
   "inbounds": [
-   {
+    {
       "port": 1234,
       "listen": "127.0.0.1",
       "protocol": "vless",
@@ -37,7 +37,7 @@ cat << EOF > ${DIR_XRAY_CONFIG}/xray.json
           "path": "/$AID-xtls"
         }
       }
-    }
+    },
     {
       "listen": "/etc/caddy/vmess",
       "protocol": "vmess",
@@ -267,7 +267,7 @@ reverse_proxy @websocket_xray_socks 127.0.0.1:5234
 	header Upgrade    websocket
 	path /$AID-xtls
 }
-reverse_proxy @websocket_xray_socks 127.0.0.1:1234
+reverse_proxy @websocket_xray_xtls 127.0.0.1:1234
 EOF
 
 
