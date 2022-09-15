@@ -5,7 +5,7 @@
 DIR_XRAY_CONFIG="/etc/xray"
 DIR_XRAY="/usr/local/xray"
 DIR_CADDY_CONFIG="/etc/caddy"
-DIR_CADDY_RESOURCE="/usr/local/caddy"
+DIR_CADDY_RESOURCE="/usr/share/caddy"
 DIR_TMP="$(mktemp -d)"
 
 
