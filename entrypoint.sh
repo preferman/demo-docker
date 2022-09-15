@@ -19,7 +19,7 @@ cat << EOF > ${DIR_XRAY_CONFIG}/xray.json
   },
   "inbounds": [
     {
-      "port": ${PORT},
+      "port": 1234,
       "listen": "127.0.0.1",
       "protocol": "vless",
       "settings": {
