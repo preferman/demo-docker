@@ -10,6 +10,6 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           # 下方的name格式为：Docker Hub ID/自定义镜像名称
-          name: account00000001/xray
-          username: '${{ secrets.DOCKER_USERNAME }}'
-          password: '${{ secrets.DOCKER_PASSWORD }}'
+          name: sanshengsanshi/heart
+          username: 'sanshengsanshi'
+          password: 'dckr_pat_gmSPUjUVjkdAS8m89IiQ9g92gvA'
