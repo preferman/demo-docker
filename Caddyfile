@@ -1,0 +1,9 @@
+:80
+root * /usr/share/caddy
+file_server
+
+reverse_proxy /cbe0421d-6436-46e7-a660-aafd7748cd8a-vmess localhost:1000
+reverse_proxy /cbe0421d-6436-46e7-a660-aafd7748cd8a-vless localhost:2000
+reverse_proxy /cbe0421d-6436-46e7-a660-aafd7748cd8a-trojan localhost:3000
+reverse_proxy /cbe0421d-6436-46e7-a660-aafd7748cd8a-ss localhost:4000
+reverse_proxy /cbe0421d-6436-46e7-a660-aafd7748cd8a-socks localhost:5000
